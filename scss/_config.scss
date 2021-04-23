@@ -1,0 +1,170 @@
+// reset
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+$color-pallete: (
+  "primary": rgb(2, 117, 216),
+  "info": rgb(91, 192, 222),
+  "inverse": rgb(41, 43, 44),
+  "faded": rgb(247, 247, 247),
+  "warning": #f0ad4e,
+  "success": #5cb85c,
+  "danger" : #d9534f
+);
+$breakpoints: (
+  "min-phone": 320px,
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 1024px,
+  "desktop": 1248px,
+  "desktop-wide": 1440px,
+);
+.light-theme {
+  background-color: map-get($map: $color-pallete, $key: faded);
+  color: map-get($map: $color-pallete, $key: inverse);
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @content;
+}
+@mixin transition-mixin($transition-delay: 0ms) {
+  transition: all 0.3s ease-in-out;
+  transition-delay: $transition-delay;
+}
+@mixin font-source-sans(
+  $size: false,
+  $colour: false,
+  $weight: false,
+  $lh: false
+) {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  @if $size {
+    font-size: $size;
+  }
+  @if $colour {
+    color: $colour;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+}
+@mixin fluid-type(
+  $min-font-size: 12px,
+  $max-font-size: 21px,
+  $lower-range: 420px,
+  $upper-range: 900px
+) {
+  font-size: calc(
+    #{$min-font-size} + #{(
+        ($max-font-size / ($max-font-size * 0 + 1)) -
+          ($min-font-size / ($min-font-size * 0 + 1))
+      )} * ((100vw - #{$lower-range}) / #{(
+            ($upper-range / ($upper-range * 0 + 1)) -
+              ($lower-range / ($lower-range * 0 + 1))
+          )})
+  );
+
+  @media screen and (max-width: $lower-range) {
+    font-size: $min-font-size;
+  }
+  @media screen and (min-width: $upper-range) {
+    font-size: $max-font-size;
+  }
+}
+// @mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+//   @include pseudo($pos: $position);
+//   width: 0;
+//   height: 0;
+//   @if $round {
+//       border-radius: 3px;
+//   }
+//   @if $direction == down {
+//       border-left: $size solid transparent;
+//       border-right: $size solid transparent;
+//       border-top: $size solid $color;
+//       margin-top: 0 - round( $size / 2.5 );
+//   } @else if $direction == up {
+//       border-left: $size solid transparent;
+//       border-right: $size solid transparent;
+//       border-bottom: $size solid $color;
+//       margin-bottom: 0 - round( $size / 2.5 );
+//   } @else if $direction == right {
+//       border-top: $size solid transparent;
+//       border-bottom: $size solid transparent;
+//       border-left: $size solid $color;
+//       margin-right: -$size;
+//   } @else if  $direction == left {
+//       border-top: $size solid transparent;
+//       border-bottom: $size solid transparent;
+//       border-right: $size solid $color;
+//       margin-left: -$size;
+//   }
+// }
+@mixin background-image-set($url, $size: cover) {
+  background: linear-gradient(
+      to right,
+      rgba(map-get($color-pallete, inverse), 0.9),
+      rgba(map-get($color-pallete, inverse), 0.3)
+    ),
+    url($url) no-repeat center center fixed;
+  background-size: $size;
+}
+@mixin emboss($color, $depth) {
+  font-weight: bold;
+  color: $color;
+
+  text-shadow: 0 ($depth * 0.01em) ($depth * 0.01em) lighten($color, 15%),
+    0 ($depth * 0.01em) ($depth * 0em) darken($color, 10%),
+    0 ($depth * 0.02em) ($depth * 0em) darken($color, 11%),
+    0 ($depth * 0.03em) ($depth * 0.01em) darken($color, 12%),
+    0 ($depth * 0.04em) ($depth * 0.02em) darken($color, 13%),
+    0 ($depth * 0.05em) ($depth * 0.03em) darken($color, 14%),
+    0 ($depth * 0.06em) ($depth * 0.03em) darken($color, 15%),
+    0 ($depth * 0.07em) ($depth * 0.02em) darken($color, 16%),
+    0 ($depth * 0.08em) ($depth * 0.01em) darken($color, 17%),
+    0 ($depth * 0.09em) ($depth * 0em) darken($color, 18%),
+    0 ($depth * 0.1em) ($depth * 0em) darken($color, 19%),
+    0 ($depth * 0.1em) ($depth * 0.04em) rgba(0, 0, 0, 0.2),
+    0 ($depth * 0.1em) ($depth * 0.08em) rgba(0, 0, 0, 0.4),
+    0 ($depth * 0.1em) ($depth * 0.12em) rgba(0, 0, 0, 0.6),
+    0 ($depth * 0.14em) ($depth * 0.1em) rgba(0, 0, 0, 0.2),
+    0 ($depth * 0.18em) ($depth * 0.1em) rgba(0, 0, 0, 0.2);
+
+  @include selection {
+    background: #ddd;
+  }
+}
+
+@mixin selection {
+  &::-moz-selection {
+    @content;
+  }
+  &::selection {
+    @content;
+  }
+}
+@mixin card-glassmorphic($height: 180px, $width: 300px) {
+  height: $height;
+  width: $width;
+  padding: 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.034);
+  box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.082);
+  border-right: 1px solid rgba(255, 255, 255, 0.151);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.151);
+  backdrop-filter: blur(10px);
+}
+

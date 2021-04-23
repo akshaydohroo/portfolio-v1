@@ -1,0 +1,42 @@
+.home_wrapper {
+  @include background-image-set("../webd.svg");
+  height: 100vh;
+  overflow: hidden;
+}
+.main_content-home {
+  display: block;
+  text-align: center;
+  padding: 42vh 0;
+  @include fluid-type(24px, 44px, 320px, 1520px);
+  color: #F5F5F5  ;
+  margin: 0 10px;
+  h1 {
+    @include emboss(lighten(map-get($map: $color-pallete, $key: warning),9%), 0.7);
+    @include fluid-type(56px, 100px, 320px, 1520px);
+  }
+  @include transition-mixin();
+}
+footer{
+  position: relative;
+}
+.social_media_icons{
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: xx-large;
+    z-index: 10;
+    a{
+        text-decoration: none;
+        color: white;
+
+    }
+}
+.copyright{
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1rem;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    z-index: 10;
+}

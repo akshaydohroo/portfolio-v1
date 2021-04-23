@@ -1,0 +1,110 @@
+.navbar {
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  #{&}_btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    height: 33%;
+    width: 28px;
+    cursor: pointer;
+    $icon-color: map-get(
+      $map: $color-pallete,
+      $key: faded,
+    );
+    .icon {
+      position: relative;
+      top: 12px;
+      background-color: $icon-color;
+      width: 100%;
+      height: 3px;
+      z-index: 6;
+      @include transition-mixin;
+      &::before {
+        @include pseudo(block, relative, "");
+        top: -7px;
+        height: 3px;
+        background-color: $icon-color;
+        @include transition-mixin;
+      }
+      &::after {
+        @include pseudo(block, relative, "");
+        top: 5px;
+        width: 70%;
+        height: 3px;
+        background-color: $icon-color;
+        @include transition-mixin;
+      }
+      &.open {
+        background: transparent;
+        transform: rotate(720deg);
+        &::before {
+          transform: rotate(45deg) translate(3px, 8px);
+        }
+        &::after {
+          width: 100%;
+          transform: rotate(-45deg) translate(3px, -8px);
+        }
+      }
+    }
+  }
+
+  #{&}_content {
+    height: 100%;
+    width: 100%;
+    .nav_items {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-100%);
+      visibility: hidden;
+      @include transition-mixin();
+      &.open {
+        transform: translateY(0%);
+        visibility: visible;
+        &::after {
+          content: "";
+          background-color: rgba(
+            map-get($map: $color-pallete, $key: inverse),
+            0.9
+          );
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          z-index: -1;
+        }
+      }
+      .nav_item {
+        a {
+          text-decoration: none;
+          font-size: 3rem;
+          line-height: 8rem;
+          color: map-get($map: $color-pallete, $key: faded);
+          @include transition-mixin;
+          &:hover {
+            color: map-get($map: $color-pallete, $key: primary);
+          }
+        }
+        transform: translateX(100vw);
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            @include transition-mixin(
+              $transition-delay: (
+                ($i * 0.07s) + 0.07s,
+              )
+            );
+          }
+        }
+        &.open {
+          transform: translateX(0vw);
+        }
+      }
+    }
+  }
+}

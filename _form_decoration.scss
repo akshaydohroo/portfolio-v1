@@ -1,0 +1,38 @@
+@include form;
+.form_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: white;
+  min-width: 300px;
+  input {
+    width: clamp(280px, 30vw, 720px);
+  }
+  @media (min-width: 800px) {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f121";
+      font-size: 10em;
+      position: absolute;
+      right: 5%;
+      top: 30%;
+      color: map-get($map: $color-pallete, $key: info);
+      transform: rotate(45deg);
+    }
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f188";
+      font-size: 10em;
+      position: absolute;
+      left: 5%;
+      top: 30%;
+      color: map-get($map: $color-pallete, $key: danger);
+      transform: rotate(90deg);
+    }
+  }
+
+}

@@ -1,0 +1,18 @@
+@import "config";
+@import "navbar";
+@import "project";
+@import "home";
+body,
+html,
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right,
+    rgba(map-get($color-pallete, inverse), 0.9),
+    rgba(map-get($color-pallete, inverse), 0.3)
+  );
+}

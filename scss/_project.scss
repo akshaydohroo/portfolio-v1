@@ -1,0 +1,41 @@
+.project_wrapper {
+  @include background-image-set("../webd.svg");
+  height: 100vh;
+  overflow-y: scroll;
+  .main_content_project > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 70px;
+    .avatar_image {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 30px;
+    }
+    .avatar_image > img {
+      width: 200px;
+      height: 200px;
+    }
+    .repos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 100px;
+      a {
+        &.card {
+          @include card-glassmorphic;
+          height: 200px;
+          width: 230px;
+          margin: 3px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
