@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -235,19 +236,12 @@
 }
 
 .project_wrapper .main_content_project > section .repos a.card {
-  height: 180px;
-  width: 300px;
-  padding: 10px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 18px;
-  background: rgba(255, 255, 255, 0.034);
-  -webkit-box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.082);
-          box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.082);
-  border-right: 1px solid rgba(255, 255, 255, 0.151);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.151);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  padding: 20px;
+  background-color: #f7f7f7;
+  color: #f0ad4e;
+  font-weight: bold;
+  color: #d43f3a;
+  text-shadow: 0 0.001em 0.001em #e27c79, 0 0.001em 0em #b52b27, 0 0.002em 0em #b02a26, 0 0.003em 0.001em #ac2925, 0 0.004em 0.002em #a82824, 0 0.005em 0.003em #a42723, 0 0.006em 0.003em #a02622, 0 0.007em 0.002em #9b2522, 0 0.008em 0.001em #972421, 0 0.009em 0em #932320, 0 0.01em 0em #8f221f, 0 0.01em 0.004em rgba(0, 0, 0, 0.2), 0 0.01em 0.008em rgba(0, 0, 0, 0.4), 0 0.01em 0.012em rgba(0, 0, 0, 0.6), 0 0.014em 0.01em rgba(0, 0, 0, 0.2), 0 0.018em 0.01em rgba(0, 0, 0, 0.2);
   height: 200px;
   width: 230px;
   margin: 3px;
@@ -262,14 +256,40 @@
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
+  position: relative;
+  -webkit-transition: ease-in-out;
+  transition: ease-in-out;
+  z-index: 3;
+}
+
+.project_wrapper .main_content_project > section .repos a.card::-moz-selection {
+  background: #ddd;
+}
+
+.project_wrapper .main_content_project > section .repos a.card::selection {
+  background: #ddd;
+}
+
+.project_wrapper .main_content_project > section .repos a.card:hover {
+  bottom: 2px;
+}
+
+.project_wrapper .main_content_project > section .repos a.card:before {
+  position: absolute;
+  font-family: "FontAwesome";
+  font-size: 100px;
+  text-align: center;
+  top: 40px;
+  content: "\f121";
+  color: #85d0e7;
+  z-index: -1;
 }
 
 .home_wrapper {
   background: -webkit-gradient(linear, left top, right top, from(rgba(41, 43, 44, 0.9)), to(rgba(41, 43, 44, 0.3))), url("../webd.svg") no-repeat center center fixed;
   background: linear-gradient(to right, rgba(41, 43, 44, 0.9), rgba(41, 43, 44, 0.3)), url("../webd.svg") no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .main_content-home {
@@ -349,6 +369,173 @@ footer {
   font-size: large;
   font-weight: 700;
   z-index: 10;
+}
+
+.about_wrapper {
+  overflow-y: scroll;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(41, 43, 44, 0.9)), to(rgba(41, 43, 44, 0.3))), url("../webd.svg") no-repeat center center fixed;
+  background: linear-gradient(to right, rgba(41, 43, 44, 0.9), rgba(41, 43, 44, 0.3)), url("../webd.svg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.main_content-about {
+  min-height: 80vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.main_content-about .bio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: cursive;
+  color: white;
+}
+
+.main_content-about .bio .history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 3;
+      -ms-flex: 3 1 60%;
+          flex: 3 1 60%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 2%;
+}
+
+.main_content-about .bio .history .education,
+.main_content-about .bio .history .work,
+.main_content-about .bio .history .hobbies {
+  margin-bottom: 5%;
+}
+
+.main_content-about .bio .history .education h2,
+.main_content-about .bio .history .work h2,
+.main_content-about .bio .history .hobbies h2 {
+  margin-bottom: 2%;
+  font-size: x-large;
+}
+
+.main_content-about .bio .history .education h4,
+.main_content-about .bio .history .work h4,
+.main_content-about .bio .history .hobbies h4 {
+  margin-bottom: 1%;
+  margin-top: 1%;
+  font-size: larger;
+}
+
+.main_content-about .bio .skills {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 35%;
+          flex: 1 1 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main_content-about .bio .skills div {
+  position: relative;
+}
+
+.main_content-about .bio .skills div:nth-of-type(1)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "        ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+.main_content-about .bio .skills div:nth-of-type(2)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "      ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+.main_content-about .bio .skills div:nth-of-type(3)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "      ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+.main_content-about .bio .skills div:nth-of-type(4)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "      ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+.main_content-about .bio .skills div:nth-of-type(5)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "        ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+.main_content-about .bio .skills div:nth-of-type(6)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "        ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+.main_content-about .bio .skills div:nth-of-type(7)::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 1000;
+  content: "          ";
+  position: absolute;
+  right: -120px;
+  top: 7px;
+}
+
+@media screen and (max-width: 992px) {
+  .bio {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .bio > * {
+    width: 100vw;
+  }
+  .bio .skills {
+    margin-left: 2%;
+  }
+  .bio .skills * {
+    margin-bottom: 2%;
+  }
 }
 
 body,

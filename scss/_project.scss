@@ -26,7 +26,10 @@
       margin-bottom: 100px;
       a {
         &.card {
-          @include card-glassmorphic;
+          padding: 20px;
+          background-color: map-get($color-pallete, faded);
+          color: map-get($color-pallete, warning);
+          @include emboss(darken(map-get($map: $color-pallete, $key: danger),5%), 0.1);
           height: 200px;
           width: 230px;
           margin: 3px;
@@ -34,6 +37,22 @@
           flex-direction: column;
           align-items: center;
           text-decoration: none;
+          position: relative;
+          transition: ease-in-out;
+          z-index: 3;
+        }
+        &.card:hover {
+          bottom: 2px;
+        }
+        &.card:before {
+          position: absolute;
+          font-family: "FontAwesome";
+          font-size: 100px;
+          text-align: center;
+          top: 40px;
+          content: "\f121";
+          color: lighten(map-get($map: $color-pallete, $key: info), 10%);
+          z-index: -1;
         }
       }
     }

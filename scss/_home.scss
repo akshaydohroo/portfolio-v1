@@ -1,7 +1,6 @@
 .home_wrapper {
   @include background-image-set("../webd.svg");
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 .main_content-home {
   display: block;

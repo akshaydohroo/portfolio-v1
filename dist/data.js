@@ -38,13 +38,6 @@ const url = "https://api.github.com/users/" + userName;
       desc.style.marginBottom = "auto";
       repo.appendChild(desc);
     }
-    if(element.homepage){
-      let homepage = document.createElement("a");
-      homepage.setAttribute("href",element.homepage);
-      homepage.textContent = "Homepage";
-      homepage.style.textDecoration = "none";
-      repo.appendChild(homepage);
-    }
     if(element.forks){
       let forks = document.createElement("h5");
       forks.textContent = "forks" + element.forks;

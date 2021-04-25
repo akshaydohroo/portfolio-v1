@@ -11,8 +11,9 @@ $color-pallete: (
   "faded": rgb(247, 247, 247),
   "warning": #f0ad4e,
   "success": #5cb85c,
-  "danger" : #d9534f
+  "danger": #d9534f,
 );
+
 $breakpoints: (
   "min-phone": 320px,
   "phone": 400px,
@@ -154,17 +155,3 @@ $breakpoints: (
     @content;
   }
 }
-@mixin card-glassmorphic($height: 180px, $width: 300px) {
-  height: $height;
-  width: $width;
-  padding: 10px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 18px;
-  background: rgba(255, 255, 255, 0.034);
-  box-shadow: 10px 10px 20px -10px rgba(255, 255, 255, 0.082);
-  border-right: 1px solid rgba(255, 255, 255, 0.151);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.151);
-  backdrop-filter: blur(10px);
-}
-
